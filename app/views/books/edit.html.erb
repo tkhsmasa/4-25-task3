@@ -1,4 +1,4 @@
-<h2>Editing book</h2>
+<h2>Editing Book</h2>
 <%= form_with model: @book do |f| %>
 
 <p>Title</p>
@@ -6,7 +6,7 @@
 <p>Opinion</p>
   <%= f.text_area :body %>
 
-  <%= f.submit "変更を保存" %>
+  <%= f.submit "Update Book" %>
 <% end %>
 
 <p><%= link_to "Show", book_path(@book.id) %></p>
