@@ -10,9 +10,13 @@
 <% end %>
 <!--新規投稿-->
 <%= form_with model: book_new do |f| %>
-  <h4>Title</h4>
+<div>
+  <p>Title</p>
     <%= f.text_field :title %>
-  <h4>Opinion</h4>
+</div>
+<div>
+  <p>Opinion</p>
     <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
+</div>
+  <%= f.submit 'Create Book', class: "btn btn-sm btn-success" %>
 <% end %>

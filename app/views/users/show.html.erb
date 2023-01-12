@@ -4,10 +4,49 @@
   </p>
 <% end %>
 
-<%= render 'books/user_info', user: @user %>
-<%= render 'books/new_book', book_new: @book_new %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'books/user_info', user: @user %>
+      <%= render 'books/new_book', book_new: @book_new %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th colspan="1"></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
 
-<h3>Books</h3>
+        <tbody>
+          <% @book.each do |book| %>
+            <tr>
+              <td>
+                <%= link_to user_path(book.user_id) do %>
+                  <%= image_tag book.user.get_profile_image(80,80) %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td><%= book.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--
 <% @book.each do |book| %>
 <div>
   <p>画像
@@ -26,5 +65,5 @@
 
 </div>
 <% end %>
-
+-->
 
