@@ -1,8 +1,10 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
-
-<%= render 'list', book_new: @book_new %>
-
+<% if flash[:notice] %>
+  <p id="notice">
+   <%= flash[:notice] %>
+  </p>
+<% end %>
+<%= render 'user_info', user: @user %>
+<%= render 'new_book', book_new: @book_new %>
 
 <div>
   <h2>Book detail</h2>
@@ -17,8 +19,8 @@
   <p>説明：<%= @book.body %></p>
   <p>投稿日：<%= @book.created_at.strftime('%Y/%m/%d') %></p>
   <% if @book.user == current_user %>
-    <%= link_to "edit", edit_book_path(@book) %>
-    <%= link_to "destroy", book_path(@book), method: :delete %>
+    <%= link_to "Edit", edit_book_path(@book) %>
+    <%= link_to "Destroy", book_path(@book), method: :delete %>
   <% end %>
 
 

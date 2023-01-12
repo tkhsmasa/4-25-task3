@@ -1,6 +1,13 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
 
+<!--サクセス-->
+<% if flash[:notice] %>
+  <p id="notice">
+   <%= flash[:notice] %>
+  </p>
+<% end %>
+<!--エラーメッセージ-->
 <% if @user.errors.any? %>
   <%= @user.errors.count %>件のエラーが発生しました
   <ul>
